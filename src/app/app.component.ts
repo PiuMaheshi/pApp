@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {HotelDataServiceService} from './hotel-data-service.service';
+import {hotel} from './hotelDataModel';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  colors = ['red','blue'];
+  hotels: hotel[];
+  constructor (private hotelServise:HotelDataServiceService){
+    this.hotelServise.getHotelData();
+  }
+   
 }
